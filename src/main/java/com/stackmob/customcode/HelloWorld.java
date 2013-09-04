@@ -77,7 +77,7 @@ public class HelloWorld implements CustomCodeMethod {
       catch (Exception e) {
 
       }
-      map.put("msg", myFriends.get(0).getName());
+      map.put("msg", "hello";
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
