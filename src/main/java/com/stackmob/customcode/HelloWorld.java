@@ -53,30 +53,30 @@ public class HelloWorld implements CustomCodeMethod {
   public ResponseToProcess execute (ProcessedAPIRequest request, SDKServiceProvider serviceProvider) {
       Map<String, Object> map = new HashMap<String, Object>();
 
-      String accessToken = "";
-      JSONParser parser = new JSONParser();
-      try {
-          Object obj = parser.parse(request.getBody());
-          JSONObject jsonObject = (JSONObject) obj;
-          accessToken = (String) jsonObject.get("accessToken");
-      } catch (ParseException pe) {
+      // String accessToken = "";
+      // JSONParser parser = new JSONParser();
+      // try {
+      //     Object obj = parser.parse(request.getBody());
+      //     JSONObject jsonObject = (JSONObject) obj;
+      //     accessToken = (String) jsonObject.get("accessToken");
+      // } catch (ParseException pe) {
 
-      }
+      // }
 
-      ConfigurationBuilder cb = new ConfigurationBuilder();
-      cb.setDebugEnabled(true)
-              .setOAuthAppId("651101234913565")
-              .setOAuthAppSecret("9eb8f1ddb07752885ff07e6d76ad7903")
-              .setOAuthAccessToken(accessToken);
+      // ConfigurationBuilder cb = new ConfigurationBuilder();
+      // cb.setDebugEnabled(true)
+      //         .setOAuthAppId("651101234913565")
+      //         .setOAuthAppSecret("9eb8f1ddb07752885ff07e6d76ad7903")
+      //         .setOAuthAccessToken(accessToken);
 
-      Facebook facebook = new FacebookFactory(cb.build()).getInstance();
-      ResponseList<Friend> myFriends = null;
-      try {
-          myFriends = facebook.getFriends();
-      }
-      catch (Exception e) {
+      // Facebook facebook = new FacebookFactory(cb.build()).getInstance();
+      // ResponseList<Friend> myFriends = null;
+      // try {
+      //     myFriends = facebook.getFriends();
+      // }
+      // catch (Exception e) {
 
-      }
+      // }
       map.put("msg", "hello");
 
 
