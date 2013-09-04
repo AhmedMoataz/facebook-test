@@ -73,7 +73,7 @@ public class HelloWorld implements CustomCodeMethod {
               
       Configuration con = cb.build();
               
-      FacebookFactory f = new FacebookFactory(con);
+      Facebook facebook = new FacebookFactory().getInstance();
 
       // Facebook facebook = f.getInstance();
       
