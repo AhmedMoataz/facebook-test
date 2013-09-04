@@ -58,7 +58,7 @@ public class HelloWorld implements CustomCodeMethod {
       try {
           Object obj = parser.parse(request.getBody());
           JSONObject jsonObject = (JSONObject) obj;
-          accessToken = (String) jsonObject.get("firstName");
+          accessToken = (String) jsonObject.get("accessToken");
       } catch (ParseException pe) {
 
       }
@@ -77,7 +77,7 @@ public class HelloWorld implements CustomCodeMethod {
       catch (Exception e) {
 
       }
-      map.put("msg", "hello";
+      map.put("msg", "hello");
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
