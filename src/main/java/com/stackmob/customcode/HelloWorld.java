@@ -69,9 +69,12 @@ public class HelloWorld implements CustomCodeMethod {
               .setOAuthAppSecret("9eb8f1ddb07752885ff07e6d76ad7903")
               .setOAuthAccessToken(accessToken);
               
-      FacebookFactory f = new FacebookFactory(cb.build());
+              
+      Configuration con = cb.build();
+              
+      // FacebookFactory f = new FacebookFactory(con);
 
-      // Facebook facebook = new FacebookFactory(cb.build()).getInstance();
+      // Facebook facebook = f.getInstance();
       // ResponseList<Friend> myFriends = null;
       // try {
       //     myFriends = facebook.getFriends();
