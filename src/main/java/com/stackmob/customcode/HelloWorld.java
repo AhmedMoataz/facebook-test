@@ -31,6 +31,7 @@ import facebook4j.Friend;
 import facebook4j.Post;
 import facebook4j.ResponseList;
 import facebook4j.conf.ConfigurationBuilder;
+import facebook4j.conf.Configuration;
 
 
 import org.json.simple.JSONObject;
@@ -72,17 +73,17 @@ public class HelloWorld implements CustomCodeMethod {
               
       Configuration con = cb.build();
               
-      FacebookFactory f = new FacebookFactory(con);
+      // FacebookFactory f = new FacebookFactory(con);
 
-      Facebook facebook = f.getInstance();
+      // Facebook facebook = f.getInstance();
       
-      ResponseList<Friend> myFriends = null;
-      try {
-          myFriends = facebook.getFriends();
-      }
-      catch (Exception e) {
+      // ResponseList<Friend> myFriends = null;
+      // try {
+      //     myFriends = facebook.getFriends();
+      // }
+      // catch (Exception e) {
 
-      }
+      // }
       
       map.put("msg", "hello");
 
