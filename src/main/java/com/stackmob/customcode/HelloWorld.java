@@ -72,16 +72,18 @@ public class HelloWorld implements CustomCodeMethod {
               
       Configuration con = cb.build();
               
-      // FacebookFactory f = new FacebookFactory(con);
+      FacebookFactory f = new FacebookFactory(con);
 
-      // Facebook facebook = f.getInstance();
-      // ResponseList<Friend> myFriends = null;
-      // try {
-      //     myFriends = facebook.getFriends();
-      // }
-      // catch (Exception e) {
+      Facebook facebook = f.getInstance();
+      
+      ResponseList<Friend> myFriends = null;
+      try {
+          myFriends = facebook.getFriends();
+      }
+      catch (Exception e) {
 
-      // }
+      }
+      
       map.put("msg", "hello");
 
 
