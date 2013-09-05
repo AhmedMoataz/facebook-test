@@ -44,6 +44,7 @@ import com.restfb.exception.FacebookNetworkException;
 import com.restfb.json.JsonArray;
 import com.restfb.json.JsonException;
 import com.restfb.json.JsonObject;
+import com.stackmob.sdkapi.SDKServiceProvider;
 
 /**
  * Default implementation of a <a href="http://developers.facebook.com/docs/reference/rest/">Legacy Facebook API</a>
@@ -103,8 +104,8 @@ public class DefaultLegacyFacebookClient extends BaseFacebookClient implements L
    *           If {@code accessToken} is a blank string.
    * @since 1.5
    */
-  public DefaultLegacyFacebookClient(String accessToken) {
-    this(accessToken, new DefaultWebRequestor(), new DefaultJsonMapper());
+  public DefaultLegacyFacebookClient(String accessToken, SDKServiceProvider serviceProvider) {
+    this(accessToken, new DefaultWebRequestor(serviceProvider), new DefaultJsonMapper());
   }
 
   /**
@@ -122,8 +123,8 @@ public class DefaultLegacyFacebookClient extends BaseFacebookClient implements L
    *             will stop supporting the old authentication scheme soon.
    */
   @Deprecated
-  public DefaultLegacyFacebookClient(String apiKey, String secretKey) {
-    this(apiKey, secretKey, new DefaultWebRequestor(), new DefaultJsonMapper());
+  public DefaultLegacyFacebookClient(String apiKey, String secretKey, SDKServiceProvider serviceProvider) {
+    this(apiKey, secretKey, new DefaultWebRequestor(serviceProvider), new DefaultJsonMapper());
   }
 
   /**
