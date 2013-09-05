@@ -62,7 +62,7 @@ public class HelloWorld implements CustomCodeMethod {
       }
 
       String token = "CAAGF19ZAX3kUBALLg0HGlC7kfypEMWwDcv7A8HVHeeyghgTYZAArrgcQuxGUJZAJw0PzAN8gvFKPNMKupbvsTad0gikvSSHnc57OxywqjhIuhFZAWDR1JoYZBrjnuzfbyO4ykNf5SijQ3Wf2Ox5kub4BABkNE9A49aWDxoZCrFG4WUCFYwTQuyhrXlo0Q175T0dxlIGHXZBzQZDZD";
-      String urlMe = "https://graph.facebook.com/me/friends?access_token=" + token;
+      String urlMe = "https://graph.facebook.com/me?access_token=" + token;
       String urlFriends = "https://graph.facebook.com/me/friends?access_token=" + token;
 
       // Formulate request headers
