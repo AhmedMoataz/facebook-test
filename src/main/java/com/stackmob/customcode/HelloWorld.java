@@ -63,43 +63,44 @@ public class HelloWorld implements CustomCodeMethod {
 
 
 
-      String token = "CAAGF19ZAX3kUBALLg0HGlC7kfypEMWwDcv7A8HVHeeyghgTYZAArrgcQuxGUJZAJw0PzAN8gvFKPNMKupbvsTad0gikvSSHnc57OxywqjhIuhFZAWDR1JoYZBrjnuzfbyO4ykNf5SijQ3Wf2Ox5kub4BABkNE9A49aWDxoZCrFG4WUCFYwTQuyhrXlo0Q175T0dxlIGHXZBzQZDZD";
-      String urlMe = "https://graph.facebook.com/me?access_token=" + token;
-      String urlFriends = "https://graph.facebook.com/me/friends?access_token=" + token;
-
-      // Formulate request headers
-      Header accept = new Header("Accept-Charset", "utf-8");
-      Header content = new Header("Content-Type", "application/x-www-form-urlencoded");
-
-      Set<Header> set = new HashSet();
-      set.add(accept);
-      set.add(content);
-
-      String responseBodyMe = "";
-      String responseBodyFriends = "";
+      String token = "CAAGF19ZAX3kUBAGbJyqQntgfQa7thZBDtMyhNVTpX5ZCpGXzBuDJQogJjVCjJZBq0DoZCCo8vqNOaFPEwMvJm7ZBZAeDogCA6ZCMsYSfSvAKa8QYUNcouRUNAOaiYZC6ZBpCeXaNfJOqVyi8fMT4D69odGdF6YlTh5Oays8coEVEQq3tyMzLok7urPlhpNmwW0ZBWNkMLF3AwDxIQZDZD";
+//      String urlMe = "https://graph.facebook.com/me?access_token=" + token;
+//      String urlFriends = "https://graph.facebook.com/me/friends?access_token=" + token;
+//
+//      // Formulate request headers
+//      Header accept = new Header("Accept-Charset", "utf-8");
+//      Header content = new Header("Content-Type", "application/x-www-form-urlencoded");
+//
+//      Set<Header> set = new HashSet();
+//      set.add(accept);
+//      set.add(content);
+//
+//      String responseBodyMe = "";
+//      String responseBodyFriends = "";
 
       FacebookClient facebookClient = new DefaultFacebookClient(token, serviceProvider);
 
-      try {
-          HttpService http = serviceProvider.getHttpService();
-
-      /* In this Example we are going to be making a GET request
-       * but PUT/POST/DELETE requests are also possible.
-       */
-          GetRequest reqMe = new GetRequest(urlMe,set);
-          HttpResponse respMe = http.get(reqMe);
-
-          GetRequest reqFriends = new GetRequest(urlFriends,set);
-          HttpResponse respFriends = http.get(reqFriends);
-
-          responseBodyMe = respMe.getBody();
-          responseBodyFriends = respFriends.getBody();
-
-
-      } catch (Exception e) {}
-
-      map.put("me", responseBodyMe);
-      map.put("friends", responseBodyFriends);
+//      try {
+//          HttpService http = serviceProvider.getHttpService();
+//
+//      /* In this Example we are going to be making a GET request
+//       * but PUT/POST/DELETE requests are also possible.
+//       */
+//          GetRequest reqMe = new GetRequest(urlMe,set);
+//          HttpResponse respMe = http.get(reqMe);
+//
+//          GetRequest reqFriends = new GetRequest(urlFriends,set);
+//          HttpResponse respFriends = http.get(reqFriends);
+//
+//          responseBodyMe = respMe.getBody();
+//          responseBodyFriends = respFriends.getBody();
+//
+//
+//      } catch (Exception e) {}
+//
+//      map.put("me", responseBodyMe);
+//      map.put("friends", responseBodyFriends);
+      map.put("friends", "hamada");
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
