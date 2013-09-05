@@ -72,6 +72,7 @@ public class HelloWorld implements CustomCodeMethod {
       set.add(accept);
       set.add(content);
 
+      String responseBody = "";
       try {
           HttpService http = serviceProvider.getHttpService();
 
@@ -82,11 +83,11 @@ public class HelloWorld implements CustomCodeMethod {
           HttpResponse resp = http.get(req);
 
           int responseCode = resp.getCode();
-          String responseBody = resp.getBody();
+          responseBody = resp.getBody();
 
       } catch (Exception e) {}
 
-      map.put("msg", "hello");
+      map.put("msg", responseBody);
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
