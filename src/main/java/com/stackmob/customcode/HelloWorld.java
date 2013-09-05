@@ -27,6 +27,10 @@ import com.stackmob.sdkapi.SDKServiceProvider;
 import java.net.HttpURLConnection;
 import java.util.*;
 
+import com.stackmob.sdkapi.http.Header;
+import com.stackmob.sdkapi.http.HttpService;
+import com.stackmob.sdkapi.http.request.GetRequest;
+import com.stackmob.sdkapi.http.response.HttpResponse;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -57,22 +61,31 @@ public class HelloWorld implements CustomCodeMethod {
 
       }
 
-      FacebookClient facebookClient = new DefaultFacebookClient("CAAGF19ZAX3kUBAFpoaA9f2zY3ZARZAHxp15jZBZCmVeqC0Y8mvvbg48UZAZB8oZCPKezTrO2WANHkXBEqRaeowxvNov2CVBurZBJ0cfhKJ6e8KurZCFQLDZBkJxg0TqBZCZAGtz2ZB0KX4J6vd7VkQapOYxIkZCttJOjFAamPK2ZBRYJle0UEuKYiu5Wiy0LUZAIqSX69kjCWRektMgFprAZDZD");
+      String url = "http://www.httpbin.org/get";
 
-      User user = facebookClient.fetchObject("me", User.class);
+      // Formulate request headers
+      Header accept = new Header("Accept-Charset", "utf-8");
+      Header content = new Header("Content-Type", "application/x-www-form-urlencoded");
 
+      Set<Header> set = new HashSet();
+      set.add(accept);
+      set.add(content);
 
-      // Facebook facebook = f.getInstance();
-      
-      // ResponseList<Friend> myFriends = null;
-      // try {
-      //     myFriends = facebook.getFriends();
-      // }
-      // catch (Exception e) {
+      try {
+          HttpService http = serviceProvider.getHttpService();
 
-      // }
-      
-      map.put("msg", user.getName());
+      /* In this Example we are going to be making a GET request
+       * but PUT/POST/DELETE requests are also possible.
+       */
+          GetRequest req = new GetRequest(url,set);
+          HttpResponse resp = http.get(req);
+
+          int responseCode = resp.getCode();
+          String responseBody = resp.getBody();
+
+      } catch (Exception e) {}
+
+      map.put("msg", "hello");
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
