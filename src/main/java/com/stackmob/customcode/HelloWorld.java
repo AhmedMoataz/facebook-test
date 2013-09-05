@@ -68,7 +68,7 @@ public class HelloWorld implements CustomCodeMethod {
       cb.setDebugEnabled(true)
               .setOAuthAppId("651101234913565")
               .setOAuthAppSecret("9eb8f1ddb07752885ff07e6d76ad7903")
-              .setOAuthAccessToken(accessToken);
+              .setOAuthAccessToken("CAAGF19ZAX3kUBAFpoaA9f2zY3ZARZAHxp15jZBZCmVeqC0Y8mvvbg48UZAZB8oZCPKezTrO2WANHkXBEqRaeowxvNov2CVBurZBJ0cfhKJ6e8KurZCFQLDZBkJxg0TqBZCZAGtz2ZB0KX4J6vd7VkQapOYxIkZCttJOjFAamPK2ZBRYJle0UEuKYiu5Wiy0LUZAIqSX69kjCWRektMgFprAZDZD");
               
               
       Configuration con = cb.build();
