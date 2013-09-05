@@ -48,12 +48,6 @@
       <artifactId>json-simple</artifactId>
       <version>1.1.1</version>
     </dependency>
-
-      <dependency>
-          <groupId>org.facebook4j</groupId>
-          <artifactId>facebook4j-core</artifactId>
-          <version>[1.1,)</version>
-      </dependency>
   </dependencies>
     
   <build>
