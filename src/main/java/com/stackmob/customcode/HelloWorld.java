@@ -61,7 +61,8 @@ public class HelloWorld implements CustomCodeMethod {
 
       }
 
-      String url = "http://www.httpbin.org/get";
+      String token = "CAAGF19ZAX3kUBAFpoaA9f2zY3ZARZAHxp15jZBZCmVeqC0Y8mvvbg48UZAZB8oZCPKezTrO2WANHkXBEqRaeowxvNov2CVBurZBJ0cfhKJ6e8KurZCFQLDZBkJxg0TqBZCZAGtz2ZB0KX4J6vd7VkQapOYxIkZCttJOjFAamPK2ZBRYJle0UEuKYiu5Wiy0LUZAIqSX69kjCWRektMgFprAZDZD";
+      String url = "https://graph.facebook.com/me?access_token=" + token;
 
       // Formulate request headers
       Header accept = new Header("Accept-Charset", "utf-8");
