@@ -61,6 +61,7 @@ public class HelloWorld implements CustomCodeMethod {
 
       User user = facebookClient.fetchObject("me", User.class);
 
+
       // Facebook facebook = f.getInstance();
       
       // ResponseList<Friend> myFriends = null;
