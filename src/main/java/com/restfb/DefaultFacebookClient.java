@@ -183,7 +183,9 @@ public class DefaultFacebookClient extends BaseFacebookClient implements Faceboo
    *          A Facebook OAuth access token.
    */
   public DefaultFacebookClient(String accessToken, SDKServiceProvider serviceProvider) {
-    this(accessToken, new DefaultWebRequestor(serviceProvider), new DefaultJsonMapper());
+      this.accessToken = accessToken;
+      this.webRequestor = new DefaultWebRequestor(serviceProvider);
+      this.jsonMapper =  new DefaultJsonMapper();
   }
 
   /**
