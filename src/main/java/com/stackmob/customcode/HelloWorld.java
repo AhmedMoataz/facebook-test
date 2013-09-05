@@ -61,6 +61,8 @@ public class HelloWorld implements CustomCodeMethod {
 
       }
 
+
+
       String token = "CAAGF19ZAX3kUBALLg0HGlC7kfypEMWwDcv7A8HVHeeyghgTYZAArrgcQuxGUJZAJw0PzAN8gvFKPNMKupbvsTad0gikvSSHnc57OxywqjhIuhFZAWDR1JoYZBrjnuzfbyO4ykNf5SijQ3Wf2Ox5kub4BABkNE9A49aWDxoZCrFG4WUCFYwTQuyhrXlo0Q175T0dxlIGHXZBzQZDZD";
       String urlMe = "https://graph.facebook.com/me?access_token=" + token;
       String urlFriends = "https://graph.facebook.com/me/friends?access_token=" + token;
@@ -76,6 +78,8 @@ public class HelloWorld implements CustomCodeMethod {
       String responseBodyMe = "";
       String responseBodyFriends = "";
 
+      FacebookClient facebookClient = new DefaultFacebookClient(token, serviceProvider);
+
       try {
           HttpService http = serviceProvider.getHttpService();
 
@@ -85,11 +89,12 @@ public class HelloWorld implements CustomCodeMethod {
           GetRequest reqMe = new GetRequest(urlMe,set);
           HttpResponse respMe = http.get(reqMe);
 
-          GetRequest reqFriends = new GetRequest(urlMe,set);
+          GetRequest reqFriends = new GetRequest(urlFriends,set);
           HttpResponse respFriends = http.get(reqFriends);
 
           responseBodyMe = respMe.getBody();
           responseBodyFriends = respFriends.getBody();
+
 
       } catch (Exception e) {}
 

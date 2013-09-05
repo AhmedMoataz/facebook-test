@@ -48,12 +48,6 @@
       <artifactId>json-simple</artifactId>
       <version>1.1.1</version>
     </dependency>
-
-      <dependency>
-          <groupId>com.restfb</groupId>
-          <artifactId>restfb</artifactId>
-          <version>1.6.12</version>
-      </dependency>
   </dependencies>
     
   <build>
