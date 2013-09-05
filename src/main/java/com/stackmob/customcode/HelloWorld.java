@@ -31,6 +31,7 @@ import facebook4j.Friend;
 import facebook4j.Post;
 import facebook4j.ResponseList;
 import facebook4j.conf.ConfigurationBuilder;
+import facebook4j.conf.Configuration;
 
 
 import org.json.simple.JSONObject;
@@ -58,7 +59,7 @@ public class HelloWorld implements CustomCodeMethod {
       try {
           Object obj = parser.parse(request.getBody());
           JSONObject jsonObject = (JSONObject) obj;
-          accessToken = (String) jsonObject.get("firstName");
+          accessToken = (String) jsonObject.get("accessToken");
       } catch (ParseException pe) {
 
       }
@@ -68,16 +69,23 @@ public class HelloWorld implements CustomCodeMethod {
               .setOAuthAppId("651101234913565")
               .setOAuthAppSecret("9eb8f1ddb07752885ff07e6d76ad7903")
               .setOAuthAccessToken(accessToken);
+              
+              
+      Configuration con = cb.build();
+              
+      Facebook facebook = new FacebookFactory().getInstance();
 
-      Facebook facebook = new FacebookFactory(cb.build()).getInstance();
-      ResponseList<Friend> myFriends = null;
-      try {
-          myFriends = facebook.getFriends();
-      }
-      catch (Exception e) {
+      // Facebook facebook = f.getInstance();
+      
+      // ResponseList<Friend> myFriends = null;
+      // try {
+      //     myFriends = facebook.getFriends();
+      // }
+      // catch (Exception e) {
 
-      }
-      map.put("msg", myFriends.get(0).getName());
+      // }
+      
+      map.put("msg", "hello");
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
