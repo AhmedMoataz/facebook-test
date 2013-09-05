@@ -16,6 +16,9 @@
 
 package com.stackmob.customcode;
 
+import com.restfb.DefaultFacebookClient;
+import com.restfb.FacebookClient;
+import com.restfb.types.User;
 import com.stackmob.core.customcode.CustomCodeMethod;
 import com.stackmob.core.rest.ProcessedAPIRequest;
 import com.stackmob.core.rest.ResponseToProcess;
@@ -64,16 +67,9 @@ public class HelloWorld implements CustomCodeMethod {
 
       }
 
-      ConfigurationBuilder cb = new ConfigurationBuilder();
-      cb.setDebugEnabled(true)
-              .setOAuthAppId("651101234913565")
-              .setOAuthAppSecret("9eb8f1ddb07752885ff07e6d76ad7903")
-              .setOAuthAccessToken(accessToken);
-              
-              
-      Configuration con = cb.build();
-              
-      Facebook facebook = new FacebookFactory().getInstance();
+      FacebookClient facebookClient = new DefaultFacebookClient("CAAGF19ZAX3kUBAFpoaA9f2zY3ZARZAHxp15jZBZCmVeqC0Y8mvvbg48UZAZB8oZCPKezTrO2WANHkXBEqRaeowxvNov2CVBurZBJ0cfhKJ6e8KurZCFQLDZBkJxg0TqBZCZAGtz2ZB0KX4J6vd7VkQapOYxIkZCttJOjFAamPK2ZBRYJle0UEuKYiu5Wiy0LUZAIqSX69kjCWRektMgFprAZDZD");
+
+      User user = facebookClient.fetchObject("me", User.class);
 
       // Facebook facebook = f.getInstance();
       
@@ -85,7 +81,7 @@ public class HelloWorld implements CustomCodeMethod {
 
       // }
       
-      map.put("msg", "hello");
+      map.put("msg", user.getName());
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
