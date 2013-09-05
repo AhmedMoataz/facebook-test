@@ -62,7 +62,8 @@ public class HelloWorld implements CustomCodeMethod {
       }
 
       String token = "CAAGF19ZAX3kUBALLg0HGlC7kfypEMWwDcv7A8HVHeeyghgTYZAArrgcQuxGUJZAJw0PzAN8gvFKPNMKupbvsTad0gikvSSHnc57OxywqjhIuhFZAWDR1JoYZBrjnuzfbyO4ykNf5SijQ3Wf2Ox5kub4BABkNE9A49aWDxoZCrFG4WUCFYwTQuyhrXlo0Q175T0dxlIGHXZBzQZDZD";
-      String url = "https://graph.facebook.com/me?access_token=" + token;
+      String urlMe = "https://graph.facebook.com/me/friends?access_token=" + token;
+      String urlFriends = "https://graph.facebook.com/me/friends?access_token=" + token;
 
       // Formulate request headers
       Header accept = new Header("Accept-Charset", "utf-8");
@@ -72,22 +73,28 @@ public class HelloWorld implements CustomCodeMethod {
       set.add(accept);
       set.add(content);
 
-      String responseBody = "";
+      String responseBodyMe = "";
+      String responseBodyFriends = "";
+
       try {
           HttpService http = serviceProvider.getHttpService();
 
       /* In this Example we are going to be making a GET request
        * but PUT/POST/DELETE requests are also possible.
        */
-          GetRequest req = new GetRequest(url,set);
-          HttpResponse resp = http.get(req);
+          GetRequest reqMe = new GetRequest(urlMe,set);
+          HttpResponse respMe = http.get(reqMe);
 
-          int responseCode = resp.getCode();
-          responseBody = resp.getBody();
+          GetRequest reqFriends = new GetRequest(urlMe,set);
+          HttpResponse respFriends = http.get(reqFriends);
+
+          responseBodyMe = respMe.getBody();
+          responseBodyFriends = respFriends.getBody();
 
       } catch (Exception e) {}
 
-      map.put("msg", responseBody);
+      map.put("me", responseBodyMe);
+      map.put("friends", responseBodyFriends);
 
 
       return new ResponseToProcess(HttpURLConnection.HTTP_OK, map);
