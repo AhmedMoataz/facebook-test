@@ -80,7 +80,7 @@ public class HelloWorld implements CustomCodeMethod {
 //      String responseBodyMe = "";
 //      String responseBodyFriends = "";
       try {
-      FacebookClient facebookClient = new DefaultFacebookClient(token, serviceProvider);
+      FacebookClient facebookClient = new DefaultFacebookClient(token);
       } catch (Exception e){
           logger.error(e.getMessage());
 
