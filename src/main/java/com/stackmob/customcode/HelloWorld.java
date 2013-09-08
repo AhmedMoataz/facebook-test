@@ -22,6 +22,7 @@ import com.restfb.types.User;
 import com.stackmob.core.customcode.CustomCodeMethod;
 import com.stackmob.core.rest.ProcessedAPIRequest;
 import com.stackmob.core.rest.ResponseToProcess;
+import com.stackmob.sdkapi.LoggerService;
 import com.stackmob.sdkapi.SDKServiceProvider;
 
 import java.net.HttpURLConnection;
@@ -64,6 +65,7 @@ public class HelloWorld implements CustomCodeMethod {
 
 
       String token = "CAAGF19ZAX3kUBAGbJyqQntgfQa7thZBDtMyhNVTpX5ZCpGXzBuDJQogJjVCjJZBq0DoZCCo8vqNOaFPEwMvJm7ZBZAeDogCA6ZCMsYSfSvAKa8QYUNcouRUNAOaiYZC6ZBpCeXaNfJOqVyi8fMT4D69odGdF6YlTh5Oays8coEVEQq3tyMzLok7urPlhpNmwW0ZBWNkMLF3AwDxIQZDZD";
+      LoggerService logger = serviceProvider.getLoggerService("logger");
 //      String urlMe = "https://graph.facebook.com/me?access_token=" + token;
 //      String urlFriends = "https://graph.facebook.com/me/friends?access_token=" + token;
 //
@@ -77,9 +79,12 @@ public class HelloWorld implements CustomCodeMethod {
 //
 //      String responseBodyMe = "";
 //      String responseBodyFriends = "";
-
+      try {
       FacebookClient facebookClient = new DefaultFacebookClient(token, serviceProvider);
+      } catch (Exception e){
+          logger.error(e.getMessage());
 
+      }
 //      try {
 //          HttpService http = serviceProvider.getHttpService();
 //
